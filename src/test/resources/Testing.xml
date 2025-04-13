@@ -5,22 +5,54 @@
         <parameter name="browser" value="chrome"/>
         <classes>
 <!--            <class name="org.example.dataTest.tests.RegisterTest"/>-->
-<!--            <class name="org.example.dataTest.tests.LoginTest"/>-->
+<!--             <class name="org.example.dataTest.tests.LoginTest"/>-->
 <!--            <class name="org.example.dataTest.tests.OpenNewAccountTest"/>-->
 <!--            <class name="org.example.dataTest.tests.TransferFundsTest"/>-->
-            <class name="org.example.dataTest.tests.BillPaymentTest"/>
+<!--            <class name="org.example.dataTest.tests.BillPaymentTest"/>-->
 <!--            <class name="org.example.dataTest.tests.FindTransactionTest"/>-->
 <!--            <class name="org.example.dataTest.tests.ContactUsTest"/>-->
-<!--             <class name="org.example.dataTest.tests.ForgotLoginInfoTest"/>-->
-<!--             <class name="org.example.dataTest.tests.UpdatContectInfoTest"/>-->
-<!--             <class name="org.example.dataTest.tests.RequestLoanTest"/>-->
+<!--            <class name="org.example.dataTest.tests.ForgotLoginInfoTest"/>-->
+<!--            <class name="org.example.dataTest.tests.UpdatContectInfoTest"/>-->
+<!--            <class name="org.example.dataTest.tests.RequestLoanTest"/>-->
+                <class name="org.example.dataTest.tests.FullUserJourneyTest"/>
 
         </classes>
     </test>
-<!--    <test name="Edge Test">-->
-<!--        <parameter name="browser" value="edge"/>-->
-<!--        <classes>-->
-<!--            <class name="org.example.dataTest.tests.LoginTest"/>-->
-<!--        </classes>-->
-<!--    </test>-->
+    <test name="Edge Test">
+        <parameter name="browser" value="edge"/>
+        <classes>
+            <!--                       <class name="org.example.dataTest.tests.RegisterTest"/>-->
+            <!--                       <class name="org.example.dataTest.tests.LoginTest"/>-->
+            <!--                       <class name="org.example.dataTest.tests.OpenNewAccountTest"/>-->
+            <!--                      <class name="org.example.dataTest.tests.TransferFundsTest"/>-->
+            <!--                        <class name="org.example.dataTest.tests.BillPaymentTest"/>-->
+            <!--                        <class name="org.example.dataTest.tests.FindTransactionTest"/>-->
+            <!--                        <class name="org.example.dataTest.tests.ContactUsTest"/>-->
+            <!--                         <class name="org.example.dataTest.tests.ForgotLoginInfoTest"/>-->
+            <!--                         <class name="org.example.dataTest.tests.RequestLoanTest"/>-->
+            <!--                         <class name="org.example.dataTest.tests.RequestLoanTest"/>-->
+                            <class name="org.example.dataTest.tests.FullUserJourneyTest"/git add .
+            >
+
+        </classes>
+    </test>
+
+    <test name="Firefox Test">
+        <parameter name="browser" value="firefox"/>
+        <classes>
+<!--                       <class name="org.example.dataTest.tests.RegisterTest"/>-->
+<!--                       <class name="org.example.dataTest.tests.LoginTest"/>-->
+<!--                       <class name="org.example.dataTest.tests.OpenNewAccountTest"/>-->
+<!--                      <class name="org.example.dataTest.tests.TransferFundsTest"/>-->
+<!--                        <class name="org.example.dataTest.tests.BillPaymentTest"/>-->
+<!--                        <class name="org.example.dataTest.tests.FindTransactionTest"/>-->
+<!--                        <class name="org.example.dataTest.tests.ContactUsTest"/>-->
+<!--                         <class name="org.example.dataTest.tests.ForgotLoginInfoTest"/>-->
+<!--                         <class name="org.example.dataTest.tests.RequestLoanTest"/>-->
+<!--                         <class name="org.example.dataTest.tests.RequestLoanTest"/>-->
+<!--            <class name="org.example.dataTest.tests.FullUserJourneyTest"/>-->
+
+        </classes>
+    </test>
+
 </suite>

@@ -35,8 +35,7 @@ public class RegisterTest {
         RegisterPage.enterZipCode("12345");
         RegisterPage.enterPhoneNumber("01012345678");
         RegisterPage.enterSSN("123-45-6789");
-//        String uniqueUsername = "user" + System.currentTimeMillis();
-        String uniqueUsername = "so1";
+        String uniqueUsername = "user" + System.currentTimeMillis();
         RegisterPage.enterUsername(uniqueUsername);
         RegisterPage.enterPassword("123");
         RegisterPage.enterRepeatedPassword("123");

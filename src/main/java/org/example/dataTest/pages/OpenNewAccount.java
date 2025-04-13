@@ -8,7 +8,7 @@ import org.testng.Assert;
 
 public class OpenNewAccount extends Pages {
 
-        @FindBy(xpath = "//*[@id=\"leftPanel\"]/ul/li[1]/a")
+        @FindBy(xpath = "//a[text()=\"Open New Account\"]")
         private WebElement OpenNewacountButton;
 
         @FindBy(id = "type")
@@ -41,17 +41,22 @@ public class OpenNewAccount extends Pages {
 
 
         public void entertypeOfAcount(int i) {
+            boolean isDisplayed = WebActions.waitForElement(driver, typeOfAcount, 10);
             WebActions.select(typeOfAcount,i);
            }
 
 
        public void enterfromAccountId(int x) {
-        WebActions.select(fromAccountId,x);
-          }
+           WebActions.waitForElement(driver, fromAccountId, 10);
+            WebActions.click(fromAccountId);
+        WebActions.waitForOptionsToBePresent(driver, fromAccountId, 10); // الجديد هنا
+        WebActions.select(fromAccountId, x);
+        }
+
 
 
         public void enterSubmitButton() {
-         WebActions.click(SubmitButton);
+            WebActions.click(SubmitButton);
           }
 
     public void verifyHappyScenario() {

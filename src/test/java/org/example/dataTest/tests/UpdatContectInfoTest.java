@@ -45,6 +45,7 @@ public class UpdatContectInfoTest {
         RegisterPage.enterRepeatedPassword("123");
         RegisterPage.clickSubmitButton();
 
+        UpdatContectInfoPage.UpdateContactInfoButton();
         UpdatContectInfoPage.firstName("eslam");
         UpdatContectInfoPage.lastName("eslam");
         UpdatContectInfoPage.address("eslam");

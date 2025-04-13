@@ -31,7 +31,7 @@ public class OpenNewAccountTest {
     }
 
     @Test
-    public void testFullUserJourney() {
+    public void testFullUserJourney() throws InterruptedException {
         RegisterPage.clickRegisterButton();
         RegisterPage.enterFirstName("so2");
         RegisterPage.enterLastName("Mohamed");
@@ -50,7 +50,7 @@ public class OpenNewAccountTest {
         Assert.assertTrue(LoginPage.isLogoutButtonDisplayed(), "فشل في التسجيل");
 
         OpenNewAccount.enterOpenNewacountButton();
-        OpenNewAccount.entertypeOfAcount(1);
+        OpenNewAccount.entertypeOfAcount(0);
         OpenNewAccount.enterfromAccountId(0 );
         OpenNewAccount.enterSubmitButton();
         OpenNewAccount.verifyHappyScenario();

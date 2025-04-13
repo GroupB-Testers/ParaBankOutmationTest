@@ -63,7 +63,7 @@ public class BillPaymentTest {
         BillPaymentpage.amount("100");
         BillPaymentpage.fromAccountId(0);
         BillPaymentpage.SendPaymentButton();
-        BillPaymentpage.setTransferFudsSucess();
+        BillPaymentpage.verifyHappyScenario();
         BillPaymentpage.logout();
     }
 

@@ -47,8 +47,8 @@ public class BillPaymentpage extends Pages {
     @FindBy(linkText = "Log Out")
     private WebElement logoutLink;
 
-    @FindBy(linkText = "Bill Payment Complete!")
-    private WebElement HaapySenario ;
+    @FindBy(xpath = "//h1[text()=\"Bill Payment Complete\"]")
+    private WebElement HaapySenario;
 
 
     public BillPaymentpage(WebDriver driver) {
@@ -60,51 +60,50 @@ public class BillPaymentpage extends Pages {
         WebActions.click(BillPayButton);
     }
 
-    public void enterAmopayeeNameunt(String Payee ) {
-        WebActions.sendKeysWithClear(AmopayeeNameunt,Payee);
+    public void enterAmopayeeNameunt(String Payee) {
+        WebActions.sendKeysWithClear(AmopayeeNameunt, Payee);
     }
 
 
-    public void enterAddress(String Addresss ) {
-        WebActions.sendKeysWithClear(Address,Addresss);
+    public void enterAddress(String Addresss) {
+        WebActions.sendKeysWithClear(Address, Addresss);
     }
 
 
-
-    public void entercity(String cityy ) {
-        WebActions.sendKeysWithClear(city,cityy);
+    public void entercity(String cityy) {
+        WebActions.sendKeysWithClear(city, cityy);
     }
 
 
-    public void enterstate(String statee ) {
-        WebActions.sendKeysWithClear(state,statee);
+    public void enterstate(String statee) {
+        WebActions.sendKeysWithClear(state, statee);
     }
 
-    public void enterzipCode(String statee ) {
-        WebActions.sendKeysWithClear(zipCode,statee);
+    public void enterzipCode(String statee) {
+        WebActions.sendKeysWithClear(zipCode, statee);
     }
 
-    public void phoneNumber(String phoneNumberr ) {
-        WebActions.sendKeysWithClear(phoneNumber,phoneNumberr);
+    public void phoneNumber(String phoneNumberr) {
+        WebActions.sendKeysWithClear(phoneNumber, phoneNumberr);
     }
 
-    public void accountNumber(String accountNumberr ) {
-        WebActions.sendKeysWithClear(accountNumber,accountNumberr);
+    public void accountNumber(String accountNumberr) {
+        WebActions.sendKeysWithClear(accountNumber, accountNumberr);
     }
 
-    public void verifyAccount(String verifyAccountt ) {
-        WebActions.sendKeysWithClear(verifyAccount,verifyAccountt);
+    public void verifyAccount(String verifyAccountt) {
+        WebActions.sendKeysWithClear(verifyAccount, verifyAccountt);
     }
 
-    public void amount(String amountt ) {
-        WebActions.sendKeysWithClear(amount,amountt);
+    public void amount(String amountt) {
+        WebActions.sendKeysWithClear(amount, amountt);
     }
 
-    public void fromAccountId(int fromAccountIdd ) {
-        WebActions.select(fromAccountId,fromAccountIdd);
+    public void fromAccountId(int fromAccountIdd) {
+        WebActions.select(fromAccountId, fromAccountIdd);
     }
 
-    public void SendPaymentButton( ) {
+    public void SendPaymentButton() {
         WebActions.click(SendPaymentButton);
     }
 
@@ -113,7 +112,8 @@ public class BillPaymentpage extends Pages {
     }
 
 
-    public void setTransferFudsSucess() {
-        Assert.assertTrue(HaapySenario.isDisplayed(), "Bill Payment Complete");
+    public void verifyHappyScenario() {
+        boolean isDisplayed = WebActions.waitForElement(driver, HaapySenario, 10);
+        Assert.assertTrue(isDisplayed, "الرسالة 'Congratulations, your account is now open.' لم تظهر كما هو متوقع.");
     }
 }

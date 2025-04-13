@@ -5,7 +5,6 @@ import org.example.dataTest.pages.*;
 import org.example.dataTest.utils.ScreenShot;
 import org.example.dataTest.utils.Utils;
 import org.openqa.selenium.WebDriver;
-import org.testng.Assert;
 import org.testng.ITestResult;
 import org.testng.annotations.*;
 import java.io.IOException;
@@ -46,7 +45,7 @@ public class RequestLoanTest {
         RegisterPage.enterRepeatedPassword("123");
         RegisterPage.clickSubmitButton();
 
-
+        RequestLoanpage.RequestLoanButton();
         RequestLoanpage.amount("100");
         RequestLoanpage.downPayment("100");
         RequestLoanpage.fromAccountId(0);

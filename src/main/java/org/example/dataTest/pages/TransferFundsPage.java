@@ -47,11 +47,18 @@ public class TransferFundsPage extends Pages {
 
 
         public void enterfromAccountId(int i ) {
-            WebActions.select(fromAccountId,i);
+            WebActions.waitForElement(driver, fromAccountId, 10);
+            WebActions.click(fromAccountId);
+            WebActions.waitForOptionsToBePresent(driver, fromAccountId, 10); // الجديد هنا
+            WebActions.select(fromAccountId, i);
         }
 
        public void entertoAccountId(int x) {
-        WebActions.select(toAccountId,x);
+           WebActions.waitForElement(driver, toAccountId, 10);
+           WebActions.click(toAccountId);
+           WebActions.waitForOptionsToBePresent(driver, toAccountId, 10); // الجديد هنا
+           WebActions.select(toAccountId,x);
+
        }
 
 
@@ -60,7 +67,6 @@ public class TransferFundsPage extends Pages {
         }
 
     public void verifyHappyScenario() {
-
         boolean isDisplayed = WebActions.waitForElement(driver, HaapySenario, 10);
         Assert.assertTrue(isDisplayed, "الرسالة 'Congratulations, your account is now open.' لم تظهر كما هو متوقع.");
     }

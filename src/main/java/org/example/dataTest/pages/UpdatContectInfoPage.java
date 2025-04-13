@@ -9,7 +9,7 @@ import org.testng.Assert;
 
 public class UpdatContectInfoPage extends Pages {
 
-    @FindBy(linkText = "Update Contact Info")
+    @FindBy(xpath = "//a[text()=\"Update Contact Info\"]")
     private WebElement UpdateContactInfoButton;
 
     @FindBy(id = "customer.firstName")

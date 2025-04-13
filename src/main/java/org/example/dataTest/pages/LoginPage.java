@@ -4,6 +4,7 @@ import org.example.dataTest.utils.WebActions;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.testng.Assert;
 
 public class LoginPage extends Pages {
 
@@ -19,8 +20,10 @@ public class LoginPage extends Pages {
     @FindBy(linkText = "Log Out")
     private WebElement logoutLink;
 
-    @FindBy(css = ".error")
+    @FindBy(xpath = "//p[text()='The username and password could not be verified.']")
     private WebElement errorMessage;
+
+
 
     public LoginPage(WebDriver driver) {
         super(driver);
@@ -43,7 +46,9 @@ public class LoginPage extends Pages {
     }
 
     public boolean isErrorMessageDisplayed() {
-        return WebActions.waitForElement(driver,errorMessage, 5);
+            boolean isDisplayed = WebActions.waitForElement(driver, errorMessage, 10);
+            Assert.assertTrue(isDisplayed, "الرسالة 'Congratulations, your account is now open.' لم تظهر كما هو متوقع.");
+            return isDisplayed;
     }
 
     public void logout() {

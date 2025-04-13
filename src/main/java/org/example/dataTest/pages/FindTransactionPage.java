@@ -19,6 +19,22 @@ public class FindTransactionPage extends Pages {
     @FindBy(id = "findById")
     private WebElement findById;
 
+    @FindBy(xpath ="//p[@class=\"error\"]")
+    private WebElement idwrongmassage;
+
+    @FindBy(xpath = "//*[@id=\"accountTable\"]/tbody/tr[1]/td[1]/a")
+    private WebElement AccountsOverviewFirstAcount;
+
+    @FindBy(xpath = "//a[text()=\"Funds Transfer Sent\"]")
+    private WebElement FindTransferSentFirst;
+
+    @FindBy(xpath = "//*[@id=\"rightPanel\"]/table/tbody/tr[1]/td[2]")
+    private WebElement TransactionID;
+
+    @FindBy(xpath = "//*[@id=\"transactionTable\"]/tbody/tr/td[1]")
+    private WebElement date;
+
+
     @FindBy(id = "transactionDate")
     private WebElement transactionDate ;
 
@@ -37,29 +53,14 @@ public class FindTransactionPage extends Pages {
     @FindBy(id = "amount")
     private WebElement amount;
 
-    @FindBy(id = "findByDate")
+    @FindBy(id = "findByAmount")
     private WebElement findByAmountButton;
-
-
-    @FindBy(linkText = "Transaction Results")
-    private WebElement HaapySenario ;
 
     @FindBy(linkText = "Accounts Overview")
     private WebElement AccountsOverview;
 
-    @FindBy(xpath = "//*[@id=\"accountTable\"]/tbody/tr[1]/td[1]/a")
-    private WebElement AccountsOverviewFirstAcount;
-
-    @FindBy(xpath = "//*[@id=\"transactionTable\"]/tbody/tr[1]/td[2]/a")
-    private WebElement FindTransferSentFirst;
-
-    @FindBy(xpath = "//*[@id=\"rightPanel\"]/table/tbody/tr[1]/td[2]")
-    private WebElement TransactionID;
-
-    @FindBy(xpath = "    //*[@id=\"transactionTable\"]/tbody/tr/td[1]")
-    private WebElement date;
-
-
+    @FindBy(xpath = "//*[@id=\"resultContainer\"]/h1")
+    private WebElement HaapySenario ;
 
     @FindBy(linkText = "Log Out")
     private WebElement logoutLink;
@@ -89,7 +90,14 @@ public class FindTransactionPage extends Pages {
         WebActions.click(findById);
     }
 
+    public boolean idwrongmassage() {
+        boolean isDisplayed = WebActions.waitForElement(driver, idwrongmassage, 10);
+        Assert.assertTrue(isDisplayed, "الرسالة 'Congratulations, your account is now open.' لم تظهر كما هو متوقع.");
+        return isDisplayed;
+    }
+
     public String getdate() {
+        boolean isDisplayed = WebActions.waitForElement(driver, date, 10);
         String getdatee = WebActions.gittext(date);
         return getdatee;
     }
@@ -105,11 +113,10 @@ public class FindTransactionPage extends Pages {
 
 
 
+
     public void enterBetween(String Betweenn) {
         WebActions.sendKeysWithClear(Between,Betweenn);
     }
-
-
 
     public void enterand(String andd) {
         WebActions.sendKeysWithClear(and,andd);
@@ -118,6 +125,9 @@ public class FindTransactionPage extends Pages {
     public void enterfindByDateRangeDat() {
         WebActions.click(findByDateRangeDat);
     }
+
+
+
 
     public void enteramount(String amountt) {
         WebActions.sendKeysWithClear(amount,amountt);
@@ -132,10 +142,13 @@ public class FindTransactionPage extends Pages {
     }
 
     public void enterAccountsOverviewFirstAcount() {
+        boolean isDisplayed = WebActions.waitForElement(driver, AccountsOverviewFirstAcount, 10);
         WebActions.click(AccountsOverviewFirstAcount);
     }
 
     public void enterFindTransferSentFirst() {
+        boolean isDisplayed = WebActions.waitForElement(driver, FindTransferSentFirst, 10);
+        WebActions.scrollToElement(driver,FindTransferSentFirst);
         WebActions.click(FindTransferSentFirst);
     }
 
@@ -144,19 +157,15 @@ public class FindTransactionPage extends Pages {
         return transactionIdText;
     }
 
-
-    public void setTransferFudsSucess() {
-        Assert.assertTrue(HaapySenario.isDisplayed(), "Transfer Complete!");
-
+    public void verifyHappyScenario() {
+        boolean isDisplayed = WebActions.waitForElement(driver, HaapySenario, 10);
+        Assert.assertTrue(isDisplayed, "الرسالة 'Congratulations, your account is now open.' لم تظهر كما هو متوقع.");
     }
+
+
     public void logout() {
         WebActions.click(logoutLink);
     }
-
-
-
-
-
 }
 
 

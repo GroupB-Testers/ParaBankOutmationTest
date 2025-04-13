@@ -38,6 +38,9 @@ public class ForgotLoginInfoPage extends Pages {
     @FindBy(xpath = "//h1[text()=\"Customer Lookup\"]")
     private WebElement HaapySenario ;
 
+    @FindBy(xpath = "//p[@class=\"error\"]\n")
+    private WebElement errormessage;
+
 
     public ForgotLoginInfoPage(WebDriver driver) {
         super(driver);
@@ -84,6 +87,11 @@ public class ForgotLoginInfoPage extends Pages {
         Assert.assertTrue(HaapySenario.isDisplayed(), "Transfer Complete!");
     }
 
+    public boolean isErrorMessageDisplayed() {
+        boolean isDisplayed = WebActions.waitForElement(driver, errormessage, 10);
+        Assert.assertTrue(isDisplayed, "الرسالة 'Congratulations, your account is now open.' لم تظهر كما هو متوقع.");
+        return isDisplayed;
+    }
 
 }
 

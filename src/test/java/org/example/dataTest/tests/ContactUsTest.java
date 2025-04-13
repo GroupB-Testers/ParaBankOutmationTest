@@ -29,6 +29,7 @@ public class ContactUsTest {
         ContactUsPage.contectUusButton();
         ContactUsPage.name("eslam");
         ContactUsPage.email("eslam8@gamil.com");
+        ContactUsPage.phone("0125465464");
         ContactUsPage.message("I want to login but i cant");
         ContactUsPage.SendtoCustomerCare();
         ContactUsPage.setTransferFudsSucess();

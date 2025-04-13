@@ -25,6 +25,20 @@ public class WebActions {
         }
     }
 
+    public static boolean waitForOptionsToBePresent(WebDriver driver, WebElement selectElement, int timeoutInSeconds) {
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeoutInSeconds));
+            wait.until(driver1 -> {
+                Select select = new Select(selectElement);
+                return select.getOptions().size() > 0;
+            });
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+
     public static void sendKeysWithClear(WebElement element, String text) {
         element.clear();
         element.sendKeys(text);
@@ -42,6 +56,5 @@ public class WebActions {
     public static void select (WebElement element,int NumberOfSelect){
         Select select=new Select(element);
         select.selectByIndex(NumberOfSelect);
-
     }
 }

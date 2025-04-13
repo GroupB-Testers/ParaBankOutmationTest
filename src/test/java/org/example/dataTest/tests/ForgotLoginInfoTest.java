@@ -29,33 +29,33 @@ public class ForgotLoginInfoTest {
     @Test
     public void testFullUserJourney() {
         RegisterPage.clickRegisterButton();
-        RegisterPage.enterFirstName("so2");
-        RegisterPage.enterLastName("Mohamed");
-        RegisterPage.enterStreet("123 Street");
-        RegisterPage.enterCity("Cairo");
-        RegisterPage.enterState("Giza");
-        RegisterPage.enterZipCode("12345");
-        RegisterPage.enterPhoneNumber("01012345678");
+        String uniqueUsername = "eslam" + System.currentTimeMillis();
+//        String uniqueUsername = "eslam6";
+        RegisterPage.enterFirstName("John");
+        RegisterPage.enterLastName("Doe");
+        RegisterPage.enterStreet("123 Main Street");
+        RegisterPage.enterCity("Anytown");
+        RegisterPage.enterState("CA");
+        RegisterPage.enterZipCode("90210");
+        RegisterPage.enterPhoneNumber(uniqueUsername);
         RegisterPage.enterSSN("123-45-6789");
-        String uniqueUsername = "user" + System.currentTimeMillis();
         RegisterPage.enterUsername(uniqueUsername);
-        String password = "123";
+        String password = uniqueUsername;
         RegisterPage.enterPassword(password);
-        RegisterPage.enterRepeatedPassword("123");
+        RegisterPage.enterRepeatedPassword(uniqueUsername);
         RegisterPage.clickSubmitButton();
-
+        RegisterPage.logout();
 
         ForgotLoginInfoPage.ForgotlogininfoButton();
-        ForgotLoginInfoPage.name("so2");
-        ForgotLoginInfoPage.lastName("Mohamed");
-        ForgotLoginInfoPage.address("123 Street");
-        ForgotLoginInfoPage.city("Cairo");
-        ForgotLoginInfoPage.state("Giza");
-        ForgotLoginInfoPage.zipCode("12345");
+        ForgotLoginInfoPage.name("John");
+        ForgotLoginInfoPage.lastName("Doe");
+        ForgotLoginInfoPage.address("123 Main Street");
+        ForgotLoginInfoPage.city("Anytown");
+        ForgotLoginInfoPage.state("CA");
+        ForgotLoginInfoPage.zipCode("90210");
         ForgotLoginInfoPage.ssn("123-45-6789");
         ForgotLoginInfoPage.findMyLohinInsubmitButtton();
         ForgotLoginInfoPage.setTransferFudsSucess();
-
     }
 
     @AfterMethod
